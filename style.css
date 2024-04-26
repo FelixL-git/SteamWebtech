@@ -1,0 +1,59 @@
+h1 {
+	font-family: Antiqua;
+	color: #F1F1F1;
+}
+
+input[type=text] {
+	padding: 12px 20px;
+	margin: 6px;
+	border-radius: 10px;
+	outline: none;
+	transition: width 0.4s ease-in-out;
+	width: 10%;
+	font-family: Tahoma;
+}
+
+input[type=text]:focus {
+	border: 3px solid #9F9F9F;
+	width: 12%;
+	font-weight: bold;
+}
+
+input[type=password] {
+	padding: 12px 20px;
+	margin: 6px;
+	border-radius: 10px;
+	outline: none;
+	transition: width 0.4s ease-in-out;
+	width: 10%;
+	font-family: Tahoma;
+}
+
+input[type=password]:focus {
+  border: 3px solid #9F9F9F;
+  width: 12%;
+  font-weight: bold;
+}
+
+input[type=button] {
+	border-radius: 25px;
+	margin: 6px;
+	outline: none;
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 12px 20px;
+	background-color: #69EEFF;
+	transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+input[type=button]:hover {
+	transform: scale(1.1);
+	background-color: #FFFFFF;
+	color: #424242;
+	cursor: pointer;
+}
+
+li {
+	color: #FFFFFF;
+}
