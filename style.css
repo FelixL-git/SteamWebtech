@@ -35,7 +35,7 @@ input[type=password]:focus {
   font-weight: bold;
 }
 
-input[type=button] {
+input[type=submit] {
 	border-radius: 25px;
 	margin: 6px;
 	outline: none;
@@ -47,7 +47,7 @@ input[type=button] {
 	transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-input[type=button]:hover {
+input[type=submit]:hover {
 	transform: scale(1.1);
 	background-color: #FFFFFF;
 	color: #424242;
@@ -56,4 +56,10 @@ input[type=button]:hover {
 
 li {
 	color: #FFFFFF;
+}
+
+.warning {
+	font-family: Tahoma;
+	font-size: 24px;
+	color: #FF0000;
 }
