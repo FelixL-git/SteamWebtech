@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Steam - Login</title>
+    <title>Steam - Dashboard</title>
     <link rel="stylesheet" href="./style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="background-color:#252525;">
+<!-- BUTTON ZURÜCK ZUM LOGIN -->
+<a href="index.html" class="align-right">
+	<input type="button" value="Logout">
+</a>
+
 <!-- SERIE HINZUFÜGEN START -->
 
 <form action="add_series.php" method="post">
@@ -34,9 +39,11 @@ if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
-$username = "Sebastian"; //TODO durch login user setzen
+//$username = "Sebastian"; //TODO durch login user setzen
+session_start();
+$username = $_SESSION["username"];
 
-$sql = "SELECT * from series WHERE username = 'Sebastian' ";
+$sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
 
 $result = $conn->query($sql);
 ?>

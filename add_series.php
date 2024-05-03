@@ -6,7 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genre = $_POST['genre'];
     $platform = $_POST['platform'];
     $seasons = $_POST['seasons'];
-    $username = "Sebastian";
+	session_start();
+    $username = $_SESSION["username"];
 
     // Erstelle die Verbindung
     $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
@@ -20,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssis", $title, $genre, $platform, $seasons, $username); // parajmeter werden als values eingesetzt s=string, i=integer
 
     if ($stmt->execute()) {
-        echo "Neue Serie erfolgreich hinzugefügt!";
+		header('Location: dashboard.php');
+        //echo "Neue Serie erfolgreich hinzugefügt!";
     } else {
         echo "Fehler: " . $stmt->error;
     }

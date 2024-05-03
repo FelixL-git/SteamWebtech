@@ -26,7 +26,10 @@
 				$result = $conn->query($sql);
 				
 				if ($result->num_rows > 0) {
-					echo "<h1>Erfolgreich eingeloggt</h1>";
+					session_start();
+					$_SESSION["username"] = $username;
+					header('Location: dashboard.php');
+					//echo "<h1>Erfolgreich eingeloggt</h1>";
 				} else {
 					readfile("./index.html");
 					echo '<center><p class="warning"> Die eingegebenen Anmeldeinformationen sind falsch. </p></center>';
