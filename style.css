@@ -11,6 +11,7 @@ label{color: #FFFFFF;}
 
 .series-container {
 	text-align: center;
+	margin: auto;
 	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -25,7 +26,7 @@ label{color: #FFFFFF;}
 	padding: 10px;
 	border: 3px solid white;
 	flex-shrink: 0;
-	flex-basis: 200px;
+	flex-basis: 185px;
 }
 
 .center {
