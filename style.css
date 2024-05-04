@@ -3,6 +3,12 @@ h1 {
 	color: #F1F1F1;
 }
 
+h2 {font-family: Antiqua; color: #FFFFFF;}
+
+div {color: #FFFFFF;}
+
+label{color: #FFFFFF;}
+
 input[type=text] {
 	padding: 12px 20px;
 	margin: 6px;

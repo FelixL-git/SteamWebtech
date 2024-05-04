@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <title>Steam - Dashboard</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -15,7 +15,7 @@
 <!-- SERIE HINZUFÜGEN START -->
 
 <form action="add_series.php" method="post">
-    <h2>Serie hinzufügen</h2>
+    <h1>Serie hinzufügen</h1>
     <label for="title">Titel:</label>
     <input type="text" id="title" name="title" required><br>
     <label for="genre">Genre:</label>
@@ -48,7 +48,7 @@ $sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
 $result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0): ?>
-    <h1>Serien Vorhanden</h1>
+    <h2>Serien Vorhanden</h2>
     <div class="series-container">
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="series">
