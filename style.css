@@ -9,6 +9,32 @@ div {color: #FFFFFF;}
 
 label{color: #FFFFFF;}
 
+.series-container {
+	text-align: center;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.series {
+	text-align: center;
+	margin: 10px;
+	width: 15%;
+	padding: 10px;
+	border: 3px solid white;
+	flex-shrink: 0;
+	flex-basis: 200px;
+}
+
+.center {
+	text-align:center;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
 input[type=text] {
 	padding: 12px 20px;
 	margin: 6px;

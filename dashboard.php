@@ -13,7 +13,7 @@
 </a>
 
 <!-- SERIE HINZUFÜGEN START -->
-
+<div class="center">
 <form action="add_series.php" method="post">
     <h1>Serie hinzufügen</h1>
     <label for="title">Titel:</label>
@@ -26,6 +26,7 @@
     <input type="number" id="seasons" name="seasons" required><br>
     <input type="submit" value="Serie hinzufügen">
 </form>
+</div>
 
 <!-- SERIE HINZUFÜGEN END -->
 
@@ -48,7 +49,7 @@ $sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
 $result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0): ?>
-    <h2>Serien Vorhanden</h2>
+    <h2 style="text-align: center">Serien Vorhanden</h2>
     <div class="series-container">
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="series">
