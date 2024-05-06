@@ -3,11 +3,28 @@ h1 {
 	color: #F1F1F1;
 }
 
-h2 {font-family: Antiqua; color: #FFFFFF;}
+h2 {
+	font-family: Antiqua; color: #FFFFFF;
+}
 
-div {color: #FFFFFF;}
+div {
+	color: #FFFFFF;
+}
 
-label{color: #FFFFFF;}
+
+
+body {
+	background: rgb(0,212,255);
+	background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 64%, rgba(2,0,36,1) 100%); 
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+}
+
+label {
+	color: #FFFFFF;
+}
 
 .series-container {
 	text-align: center;
@@ -36,35 +53,52 @@ label{color: #FFFFFF;}
 	padding: 10px;
 }
 
+.loginbody {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	min-height: 100vh;
+
+
+}
+
 input[type=text] {
-	padding: 12px 20px;
+	padding: 0 15px;
 	margin: 6px;
 	border-radius: 10px;
+	border: 2px solid #F0FFFF;
+	color: #ffffff;
 	outline: none;
-	transition: width 0.4s ease-in-out;
-	width: 10%;
+	width: 15%;
+	height: 40px;
 	font-family: Tahoma;
+	font-weight: bold;
+	background: transparent;
+
 }
 
 input[type=text]:focus {
-	border: 3px solid #9F9F9F;
-	width: 12%;
 	font-weight: bold;
+
 }
 
 input[type=password] {
-	padding: 12px 20px;
+	padding: 0 15px;
 	margin: 6px;
 	border-radius: 10px;
+	border: 2px solid #F0FFFF;
+	color: #ffffff;
 	outline: none;
-	transition: width 0.4s ease-in-out;
-	width: 10%;
+	width: 15%;
+	height: 40px;
 	font-family: Tahoma;
+	font-weight: bold;
+	background: transparent;
 }
 
 input[type=password]:focus {
-  border: 3px solid #9F9F9F;
-  width: 12%;
   font-weight: bold;
 }
 
