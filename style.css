@@ -1,57 +1,32 @@
-h1 {
-	font-family: Antiqua;
-	color: #F1F1F1;
-}
-
-input[type=text] {
-	padding: 12px 20px;
-	margin: 6px;
-	border-radius: 10px;
-	outline: none;
-	transition: width 0.4s ease-in-out;
-	width: 10%;
-	font-family: Tahoma;
-}
-
-input[type=text]:focus {
-	border: 3px solid #9F9F9F;
-	width: 12%;
-	font-weight: bold;
-}
-
-input[type=password] {
-	padding: 12px 20px;
-	margin: 6px;
-	border-radius: 10px;
-	outline: none;
-	transition: width 0.4s ease-in-out;
-	width: 10%;
-	font-family: Tahoma;
-}
-
-input[type=password]:focus {
-  border: 3px solid #9F9F9F;
-  width: 12%;
-  font-weight: bold;
-}
-
-input[type=submit], input[type=button] {
-	border-radius: 25px;
-	margin: 6px;
-	outline: none;
-	font-family: Tahoma;
-	font-weight: bold;
+/*------------STRUCTURING/STYLING------------*/
+div {
 	color: #FFFFFF;
-	padding: 12px 20px;
-	background-color: #69EEFF;
-	transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-input[type=submit]:hover, input[type=button]:hover {
-	transform: scale(1.1);
-	background-color: #FFFFFF;
-	color: #424242;
-	cursor: pointer;
+.divider {
+	width: 90%;
+	margin: auto;
+	border-bottom: 1px solid #ffffff;
+	padding-top: 10px;
+}
+
+.alignGridBottom {
+	align-self: end;
+}
+
+.alignGridCenter {
+	align-self: center;
+}
+
+.center {
+	text-align:center;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
+label {
+	color: #FFFFFF;
 }
 
 li {
@@ -67,3 +42,139 @@ li {
 .align-right {
 	float: right;
 }
+
+/*-------------------------------------------*/
+
+/*------------HEADERS------------*/
+.h1 {
+	font-family: Brush Script MT;
+	color: #F1F1F1;
+	font-size: 80px;
+}
+
+.h1--noMargin {
+	margin-bottom: -20px;
+}
+
+.h2 {
+	font-family: Arial; color: #FFFFFF;
+	font-size: 15px;
+}
+
+.h2--noMargin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/*-------------------------------*/
+
+/*------------BODY------------*/
+/*radial gradient to fill entire screen*/
+body {
+	background: rgb(0,212,255);
+	background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 64%, rgba(2,0,36,1) 100%); 
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+}
+
+/*seriesContainer is a flex display that contains the single series box elements and arranges them from top-left to bottom-right
+  styling for the single box elements can be found below*/
+.seriesContainer {
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+/*styling of a single box element containing information about a single series*/
+.series {
+	text-align: center;
+	margin: 10px;
+	width: 15%;
+	padding: 10px;
+	border: 3px solid white;
+	flex-shrink: 0;
+	flex-basis: 185px;
+}
+
+/*loginBody contains structuring and styling for the login page*/
+.loginBody {
+	text-align: center;
+	display: grid;
+	grid-template-rows: 1fr 200px 1fr;
+	grid-template-columns: 1fr;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	min-height: 100vh;
+}
+
+/*----------------------------*/
+
+/*------------INPUTS------------*/
+/*regular text fields*/
+input[type=text] {
+	padding: 0 15px;
+	margin: 6px;
+	border-radius: 10px;
+	border: 2px solid #F0FFFF;
+	color: #ffffff;
+	outline: none;
+	width: 15%;
+	height: 40px;
+	font-family: Tahoma;
+	font-weight: bold;
+	background: transparent;
+}
+
+input[type=text]:focus {
+	font-weight: bold;
+}
+
+/*password text fields*/
+input[type=password] {
+	padding: 0 15px;
+	margin: 6px;
+	border-radius: 10px;
+	border: 2px solid #F0FFFF;
+	color: #ffffff;
+	outline: none;
+	width: 15%;
+	height: 40px;
+	font-family: Tahoma;
+	font-weight: bold;
+	background: transparent;
+}
+
+input[type=password]:focus {
+  font-weight: bold;
+}
+
+/*clickable buttons*/
+input[type=submit], input[type=button] {
+	border-radius: 10px;
+	border: 2px solid #f0ffff;
+	margin: 6px;
+	outline: none;
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 0 15px;
+	height: 40px;
+	background-color: transparent;
+	transition: 0.2s ease-in-out;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+	background-color: #FFFFFF;
+	color: #424242;
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+/*------------------------------*/

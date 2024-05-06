@@ -6,19 +6,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body style="background-color:#252525;">
-		<center>
-			<h1> Steam - Streaming Series Memory </h1>
-			<form method="post" action = "/login.php">
-				<input type=text placeholder="Username" name="username"/>
-				<br>
-				<input type=password placeholder="Passwort" name="password"/>
-				<br>
-				<input type=submit value="Let's Go" />
-			</form>
-		</center>
-		<hr color="white" width="30%">
+
+	<body class="loginBody">
+		<div class="alignGridBottom">
+			<h1 class="h1 h1--noMargin"> Steam </h1>
+			<h2 class="h2 h2--noMargin"> Streaming Series Memory </h2>
+		</div>
+		<form class="alignGridCenter" method="post" action="/login.php">
+			<input type=text placeholder="Username" name="username"/>
+			<br>
+			<input type=password placeholder="Password" name="password"/>
+			<br>
+			<input type=submit value="Login" />
+		</form>
 		<!-- <a href="dashboard.php">zum dashboard</a> -->
-		
 	</body>
 </html>
