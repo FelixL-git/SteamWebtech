@@ -29,6 +29,19 @@
 </div>
 
 <!-- SERIE HINZUFÜGEN END -->
+<!-- SUCHE START -->
+<div>
+    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
+    <div id="searchfor" >
+        <label for="vehicle1">Title:</label>
+        <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
+        <label for="vehicle1">Genre:</label>
+        <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
+        <label for="vehicle1">Plattform:</label>
+        <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
+    </div>
+</div>
+<!-- SUCHE END -->
 
 <!-- SERIEN AUFLISTEN START -->
 <?php
@@ -52,15 +65,43 @@ $result = $conn->query($sql);
     <h1 class="h1 h1--noMargin" style="text-align: center">Vorhandene Serien</h1>
     <div class="divider"></div>
     <div class="series-container">
-        <?php while($row = $result->fetch_assoc()): ?>
-            <div class="series">
-                <div class="title"><span>title: </span><?php echo $row["Titel"]; ?></div>
-                <div class="genre"><span>genre: </span><?php echo $row["Genre"]; ?></div>
-                <div class="platform"><span>platform: </span><?php echo $row["Plattform"]; ?></div>
-                <div class="seasons"><span>seasons: </span><?php echo $row["Staffeln"]; ?></div>
+        <?php 
+        $index = 0;
+        while($row = $result->fetch_assoc()): 
+        ?>
+            <div 
+                class="series"
+                id="series-<?php echo $index; ?>"
+                data-series='{
+                    "id": "series-<?php echo $index; ?>",
+                    "title": "<?php echo $row["Titel"]; ?>",
+                    "genre": "<?php echo $row["Genre"]; ?>",
+                    "platform": "<?php echo $row["Plattform"]; ?>",
+                    "seasons": "<?php echo $row["Staffeln"]; ?>"
+                }'
+            >
+                <div class="title">
+                    <span>title: </span>
+                    <?php echo $row["Titel"]; ?>
+                </div>
+                <div class="genre">
+                    <span>genre: </span>
+                    <?php echo $row["Genre"]; ?>
+                </div>
+                <div class="platform">
+                    <span>platform: </span>
+                    <?php echo $row["Plattform"]; ?>
+                </div>
+                <div class="seasons">
+                    <span>seasons: </span>
+                    <?php echo $row["Staffeln"]; ?>
+                </div>
                 <br><br>
             </div>
-        <?php endwhile; ?>
+        <?php 
+        $index++;
+        endwhile; 
+        ?>
     </div>
 <?php else: ?>
     <p>Keine Serien vorhanden</p>
@@ -70,6 +111,6 @@ $conn->close();
 
 ?>
 <!-- SERIEN AUFLISTEN END -->
-
+<script src="./script.js"></script>
 </body>
 </html>

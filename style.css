@@ -102,6 +102,10 @@ body {
 	flex-basis: 185px;
 }
 
+.series.hide {
+	display: none;
+}
+
 /*loginBody contains structuring and styling for the login page*/
 .loginBody {
 	text-align: center;
