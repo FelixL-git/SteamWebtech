@@ -47,13 +47,12 @@
 <?php
 include './db_config.php';
 
-// Erstelle die Verbindung
 $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
-//$username = "Sebastian"; //TODO durch login user setzen
+
 session_start();
 $username = $_SESSION["username"];
 
@@ -97,6 +96,10 @@ $result = $conn->query($sql);
                     <?php echo $row["Staffeln"]; ?>
                 </div>
                 <br><br>
+                <form action="delete_series.php" method="post">
+                    <input type="hidden" name="series_id" value="<?php echo $row['id']; ?>">
+                    <input type="submit" value="Serie löschen">
+                </form>
             </div>
         <?php 
         $index++;
