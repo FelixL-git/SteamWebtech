@@ -49,7 +49,8 @@ $sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
 $result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0): ?>
-    <h2 style="text-align: center">Serien Vorhanden</h2>
+    <h1 class="h1 h1--noMargin" style="text-align: center">Vorhandene Serien</h1>
+    <div class="divider"></div>
     <div class="series-container">
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="series">

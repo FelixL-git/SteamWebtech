@@ -1,17 +1,46 @@
-h1 {
-	font-family: Antiqua;
+/*------------HEADER------------*/
+
+.h1 {
+	font-family: Brush Script MT;
 	color: #F1F1F1;
+	font-size: 80px;
 }
 
-h2 {
-	font-family: Antiqua; color: #FFFFFF;
+.h1--noMargin {
+	margin-bottom: -20px;
 }
+
+.h2 {
+	font-family: Arial; color: #FFFFFF;
+	font-size: 15px;
+}
+
+.h2--noMargin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/*------------------------------*/
+
 
 div {
 	color: #FFFFFF;
 }
 
+.divider {
+	width: 90%;
+	margin: auto;
+	border-bottom: 1px solid #ffffff;
+	padding-top: 10px;
+}
 
+.alignGridBottom {
+	align-self: end;
+}
+
+.alignGridCenter {
+	align-self: center;
+}
 
 body {
 	background: rgb(0,212,255);
@@ -53,15 +82,15 @@ label {
 	padding: 10px;
 }
 
-.loginbody {
+.loginBody {
 	text-align: center;
-	display: flex;
+	display: grid;
+	grid-template-rows: 1fr 200px 1fr;
+	grid-template-columns: 1fr;
 	flex-direction: column;
 	justify-content: center;
 	margin: auto;
 	min-height: 100vh;
-
-
 }
 
 input[type=text] {
@@ -76,7 +105,6 @@ input[type=text] {
 	font-family: Tahoma;
 	font-weight: bold;
 	background: transparent;
-
 }
 
 input[type=text]:focus {
@@ -103,22 +131,24 @@ input[type=password]:focus {
 }
 
 input[type=submit], input[type=button] {
-	border-radius: 25px;
+	border-radius: 10px;
+	border: 2px solid #f0ffff;
 	margin: 6px;
 	outline: none;
 	font-family: Tahoma;
 	font-weight: bold;
 	color: #FFFFFF;
-	padding: 12px 20px;
-	background-color: #69EEFF;
-	transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+	padding: 0 15px;
+	height: 40px;
+	background-color: transparent;
+	transition: 0.2s ease-in-out;
 }
 
 input[type=submit]:hover, input[type=button]:hover {
-	transform: scale(1.1);
 	background-color: #FFFFFF;
 	color: #424242;
 	cursor: pointer;
+	transform: scale(1.1);
 }
 
 li {
