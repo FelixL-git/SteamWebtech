@@ -69,6 +69,18 @@ function setupEventListeners() {
 function init() {
     loadSeriesData(); // first load all Data into JSON
     setupEventListeners(); // setup listeners for inputs
+
+    const openBtn = document.querySelector('.open-add-series-form');
+    const popup = document.querySelector('.add-series-form');
+    const closeBtn = document.querySelector('.add-series-form_close');
+
+    openBtn.addEventListener('click', () => {
+        popup.classList.add('show')
+    })
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show')
+    })
 }
 
 // call init function

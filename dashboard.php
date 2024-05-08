@@ -11,21 +11,22 @@
 <a href="index.html" class="align-right">
 	<input type="button" value="Logout">
 </a>
-
+<button class="open-add-series-form">Serie hinzufügen</button>
 <!-- SERIE HINZUFÜGEN START -->
-<div class="center">
-<form action="add_series.php" method="post">
-    <h1>Serie hinzufügen</h1>
-    <label for="title">Titel:</label>
-    <input type="text" id="title" name="title" required><br>
-    <label for="genre">Genre:</label>
-    <input type="text" id="genre" name="genre" required><br>
-    <label for="platform">Plattform:</label>
-    <input type="text" id="platform" name="platform" required><br>
-    <label for="seasons">Staffeln:</label>
-    <input type="number" id="seasons" name="seasons" required><br>
-    <input type="submit" value="Serie hinzufügen">
-</form>
+<div class="center add-series-form">
+    <button class="add-series-form_close">CLOSE</button>
+    <form action="add_series.php" method="post">
+        <h1>Serie hinzufügen</h1>
+        <label for="title">Titel:</label>
+        <input type="text" id="title" name="title" required><br>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required><br>
+        <label for="platform">Plattform:</label>
+        <input type="text" id="platform" name="platform" required><br>
+        <label for="seasons">Staffeln:</label>
+        <input type="number" id="seasons" name="seasons" required><br>
+        <input type="submit" value="Serie hinzufügen">
+    </form>
 </div>
 
 <!-- SERIE HINZUFÜGEN END -->

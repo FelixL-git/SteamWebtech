@@ -182,3 +182,13 @@ input[type=submit]:hover, input[type=button]:hover {
 }
 
 /*------------------------------*/
+
+.add-series-form {
+	display: none;
+	position: fixed;
+	background-color: darkgray;
+}
+
+.add-series-form.show {
+	display: block;
+}
