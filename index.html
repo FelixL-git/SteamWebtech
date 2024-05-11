@@ -12,13 +12,53 @@
 			<h1 class="h1 h1--noMargin"> Steam </h1>
 			<h2 class="h2 h2--noMargin"> Streaming Series Memory </h2>
 		</div>
-		<form class="alignGridCenter" method="post" action="/login.php">
+		<!-- Form Switching -->
+		<!--<label for="formSwitch" class="switchDiv"><span>Register</span></label>-->
+		
+		<center>
+			<button type="button" class="switchingButton" id="showRegisterForm" onclick="showRegister()">Show: Register</button>
+			<button type="button" class="switchingButton" id="showLoginForm" onclick="showLogin()" style="display: none;">Show: Login</button>
+		</center>
+		<form class="alignGridCenter" id="loginForm" method="post" action="/login.php">
 			<input type=text placeholder="Username" name="username"/>
 			<br>
 			<input type=password placeholder="Password" name="password"/>
 			<br>
 			<input type=submit value="Login" />
 		</form>
+		<form class="alignGridCenter" id="registerForm" method="post" action="/register.php" style="display:none">
+			<input type=text placeholder="Username" name="username"/>
+			<br>
+			<input type=password placeholder="Password" name="password"/>
+			<br>
+			<input type=password placeholder="Password" name="password2"/>
+			<br>
+			<input type=submit value="Register" />
+		</form>
+		<script type="text/javascript">
+			function showRegister() {
+				var regForm = document.getElementById("registerForm");
+				var logForm = document.getElementById("loginForm");
+				var switchToLogin = document.getElementById("showLoginForm");
+				var switchToRegister = document.getElementById("showRegisterForm");
+				regForm.style.display = "block";
+				logForm.style.display = "none";
+				switchToLogin.style.display = "block";
+				switchToRegister.style.display = "none";
+			}
+			function showLogin() {
+				var regForm = document.getElementById("registerForm");
+				var logForm = document.getElementById("loginForm");
+				var switchToLogin = document.getElementById("showLoginForm");
+				var switchToRegister = document.getElementById("showRegisterForm");
+				regForm.style.display = "none";
+				logForm.style.display = "block";
+				switchToLogin.style.display = "none";
+				switchToRegister.style.display = "block";
+			}
+		</script>
+		
+		
 		<!-- <a href="dashboard.php">zum dashboard</a> -->
 	</body>
 </html>
