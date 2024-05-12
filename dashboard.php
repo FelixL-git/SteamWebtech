@@ -30,19 +30,7 @@
 </div>
 
 <!-- SERIE HINZUFÜGEN END -->
-<!-- SUCHE START -->
-<div>
-    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
-    <div id="searchfor" >
-        <label for="vehicle1">Title:</label>
-        <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
-        <label for="vehicle1">Genre:</label>
-        <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
-        <label for="vehicle1">Plattform:</label>
-        <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
-    </div>
-</div>
-<!-- SUCHE END -->
+
 
 <!-- SERIEN AUFLISTEN START -->
 <?php
@@ -64,6 +52,19 @@ $result = $conn->query($sql);
 <?php if ($result->num_rows > 0): ?>
     <h1 class="h1 h1--noMargin" style="text-align: center">Vorhandene Serien</h1>
     <div class="divider"></div>
+    <!-- SUCHE START -->
+<div class="center">
+    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
+    <div id="searchfor" >
+        <label for="vehicle1">Title:</label>
+        <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
+        <label for="vehicle1">Genre:</label>
+        <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
+        <label for="vehicle1">Plattform:</label>
+        <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
+    </div>
+</div>
+<!-- SUCHE END -->
     <div class="series-container">
         <?php 
         $index = 0;
@@ -81,19 +82,19 @@ $result = $conn->query($sql);
                 }'
             >
                 <div class="title">
-                    <span>title: </span>
+                    <span>Titel: </span>
                     <?php echo $row["Titel"]; ?>
                 </div>
                 <div class="genre">
-                    <span>genre: </span>
+                    <span>Genre: </span>
                     <?php echo $row["Genre"]; ?>
                 </div>
                 <div class="platform">
-                    <span>platform: </span>
+                    <span>Plattform: </span>
                     <?php echo $row["Plattform"]; ?>
                 </div>
                 <div class="seasons">
-                    <span>seasons: </span>
+                    <span>Staffeln: </span>
                     <?php echo $row["Staffeln"]; ?>
                 </div>
                 <br><br>
