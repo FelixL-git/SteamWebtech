@@ -133,6 +133,14 @@ body {
 	font-family: Tahoma;
 	font-size: 25px;
 	color: #f0ffff;
+	padding: 5px;
+}
+
+.seasons{
+	font-family: Tahoma;
+	font-size: 18px;
+	color: #f0ffff;
+	padding: 5px;
 }
 .series.hide {
 	display: none;
@@ -250,7 +258,7 @@ input[type=submit]:hover, input[type=button]:hover {
 
 /*	Login/Register Switching	*/
 .switchingButton {
-	width: 10%;
+	width:150px;
 	border-radius: 10px;
 	border: 2px solid #f0ffff;
 	margin: 6px;

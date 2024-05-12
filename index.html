@@ -14,11 +14,7 @@
 		</div>
 		<!-- Form Switching -->
 		<!--<label for="formSwitch" class="switchDiv"><span>Register</span></label>-->
-		
-		<center>
-			<button type="button" class="switchingButton" id="showRegisterForm" onclick="showRegister()">Show: Register</button>
-			<button type="button" class="switchingButton" id="showLoginForm" onclick="showLogin()" style="display: none;">Show: Login</button>
-		</center>
+
 		<form class="alignGridCenter" id="loginForm" method="post" action="/login.php">
 			<input type=text placeholder="Username" name="username"/>
 			<br>
@@ -35,6 +31,10 @@
 			<br>
 			<input type=submit value="Register" />
 		</form>
+		<div class="center">
+			<button type="button" class="switchingButton" id="showRegisterForm" onclick="showRegister()">Show: Register</button>
+			<button type="button" class="switchingButton" id="showLoginForm" onclick="showLogin()" style="display: none;">Show: Login</button>
+		</div>
 		<script type="text/javascript">
 			function showRegister() {
 				var regForm = document.getElementById("registerForm");
