@@ -248,8 +248,12 @@ input[type=submit]:hover, input[type=button]:hover {
 
 .add-series-form {
 	display: none;
-	position: fixed;
-	background-color: darkgray;
+	position: relative;
+}
+
+.addSeriesFormStyling{
+	height: 500px;
+	align-content: space-around;
 }
 
 .add-series-form.show {

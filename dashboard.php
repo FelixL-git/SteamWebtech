@@ -23,7 +23,7 @@
 </div>
 <div class="gradient center add-series-form">
     <button class="add-series-form_close">CLOSE</button>
-    <form class="outline" action="add_series.php" method="post">
+    <form class="addSeriesFormStyling outline" action="add_series.php" method="post">
         <h1>Serie hinzufügen</h1>
         <label for="title">Titel:</label>
         <input type="text" id="title" name="title" required><br>
