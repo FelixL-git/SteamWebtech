@@ -67,20 +67,44 @@ function setupEventListeners() {
 
 // init function only for better overview
 function init() {
-    loadSeriesData(); // first load all Data into JSON
-    setupEventListeners(); // setup listeners for inputs
+    const isDashboardPage = document.querySelector('.page-dashboard');
+    if(isDashboardPage){
+        loadSeriesData(); // first load all Data into JSON
+        setupEventListeners(); // setup listeners for inputs
+    
+        const openBtn = document.querySelector('.open-add-series-form');
+        const popup = document.querySelector('.add-series-form');
+        const closeBtn = document.querySelector('.add-series-form_close');
+    
+        openBtn.addEventListener('click', () => {
+            popup.classList.add('show')
+        })
+    
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('show')
+        })
+    }
+}
 
-    const openBtn = document.querySelector('.open-add-series-form');
-    const popup = document.querySelector('.add-series-form');
-    const closeBtn = document.querySelector('.add-series-form_close');
-
-    openBtn.addEventListener('click', () => {
-        popup.classList.add('show')
-    })
-
-    closeBtn.addEventListener('click', () => {
-        popup.classList.remove('show')
-    })
+function showRegister() {
+    var regForm = document.getElementById("registerForm");
+    var logForm = document.getElementById("loginForm");
+    var switchToLogin = document.getElementById("showLoginForm");
+    var switchToRegister = document.getElementById("showRegisterForm");
+    regForm.style.display = "block";
+    logForm.style.display = "none";
+    switchToLogin.style.display = "block";
+    switchToRegister.style.display = "none";
+}
+function showLogin() {
+    var regForm = document.getElementById("registerForm");
+    var logForm = document.getElementById("loginForm");
+    var switchToLogin = document.getElementById("showLoginForm");
+    var switchToRegister = document.getElementById("showRegisterForm");
+    regForm.style.display = "none";
+    logForm.style.display = "block";
+    switchToLogin.style.display = "none";
+    switchToRegister.style.display = "block";
 }
 
 // call init function

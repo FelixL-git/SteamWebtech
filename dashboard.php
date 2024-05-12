@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="background-color:#252525;">
+<body class="page-dashboard" style="background-color:#252525;">
 <!-- BUTTON ZURÜCK ZUM LOGIN -->
-<a href="index.html" class="align-right">
-	<input type="button" value="Logout">
+<a href="index.html" class="align-right button">
+	Logout
 </a>
 
 
@@ -22,7 +22,7 @@
 <button class="center open-add-series-form">Serie hinzufügen</button>
 </div>
 <div class="gradient center add-series-form">
-    <button class="add-series-form_close">CLOSE</button>
+    <div class="add-series-form_close">×</div>
     <form class="addSeriesFormStyling outline" action="add_series.php" method="post">
         <h1>Serie hinzufügen</h1>
         <label for="title">Titel:</label>
@@ -41,13 +41,13 @@
 
 <!-- SUCHE START -->
 <div class="center">
-    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
+    <input type="text" id="search" placeholder="Suche: Titel, Genre, Plattform ...">
     <div id="searchfor" >
-        <label for="vehicle1">Title:</label>
+        <label for="title-checkbox">Title:</label>
         <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
-        <label for="vehicle1">Genre:</label>
+        <label for="genre-checkbox">Genre:</label>
         <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
-        <label for="vehicle1">Plattform:</label>
+        <label for="platform-checkbox">Plattform:</label>
         <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
     </div>
 </div>
