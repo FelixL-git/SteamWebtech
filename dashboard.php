@@ -11,11 +11,19 @@
 <a href="index.html" class="align-right">
 	<input type="button" value="Logout">
 </a>
-<button class="open-add-series-form">Serie hinzufügen</button>
+
+
+
+<h1 class="h1 h1--noMargin" style="text-align: center">Vorhandene Serien</h1>
+<div class="divider"></div>
+
 <!-- SERIE HINZUFÜGEN START -->
-<div class="center add-series-form">
+<div class="center">
+<button class="center open-add-series-form">Serie hinzufügen</button>
+</div>
+<div class="gradient center add-series-form">
     <button class="add-series-form_close">CLOSE</button>
-    <form action="add_series.php" method="post">
+    <form class="outline" action="add_series.php" method="post">
         <h1>Serie hinzufügen</h1>
         <label for="title">Titel:</label>
         <input type="text" id="title" name="title" required><br>
@@ -31,6 +39,19 @@
 
 <!-- SERIE HINZUFÜGEN END -->
 
+<!-- SUCHE START -->
+<div class="center">
+    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
+    <div id="searchfor" >
+        <label for="vehicle1">Title:</label>
+        <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
+        <label for="vehicle1">Genre:</label>
+        <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
+        <label for="vehicle1">Plattform:</label>
+        <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
+    </div>
+</div>
+<!-- SUCHE END --> 
 
 <!-- SERIEN AUFLISTEN START -->
 <?php
@@ -50,21 +71,7 @@ $sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
 $result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0): ?>
-    <h1 class="h1 h1--noMargin" style="text-align: center">Vorhandene Serien</h1>
-    <div class="divider"></div>
-    <!-- SUCHE START -->
-<div class="center">
-    <input type="text" id="search" placeholder="Titel, Genre, Plattform ..." checked>
-    <div id="searchfor" >
-        <label for="vehicle1">Title:</label>
-        <input type="checkbox" id="title-checkbox" name="title" value="title" checked>
-        <label for="vehicle1">Genre:</label>
-        <input type="checkbox" id="genre-checkbox" name="genre" value="genre" checked>
-        <label for="vehicle1">Plattform:</label>
-        <input type="checkbox" id="platform-checkbox" name="platform" value="platform" checked>
-    </div>
-</div>
-<!-- SUCHE END -->
+    
     <div class="series-container">
         <?php 
         $index = 0;
@@ -82,11 +89,10 @@ $result = $conn->query($sql);
                 }'
             >
                 <div class="title">
-                    <span>Titel: </span>
+                    
                     <?php echo $row["Titel"]; ?>
                 </div>
                 <div class="genre">
-                    <span>Genre: </span>
                     <?php echo $row["Genre"]; ?>
                 </div>
                 <div class="platform">
@@ -94,8 +100,8 @@ $result = $conn->query($sql);
                     <?php echo $row["Plattform"]; ?>
                 </div>
                 <div class="seasons">
-                    <span>Staffeln: </span>
                     <?php echo $row["Staffeln"]; ?>
+                    <span>Staffeln</span>
                 </div>
                 <br><br>
                 <form action="delete_series.php" method="post">
@@ -109,7 +115,7 @@ $result = $conn->query($sql);
         ?>
     </div>
 <?php else: ?>
-    <p>Keine Serien vorhanden</p>
+
 <?php endif; ?>
 <?php
 $conn->close();

@@ -43,6 +43,19 @@ li {
 	float: right;
 }
 
+.gradient {
+	background: rgb(0,212,255);
+	background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 64%, rgba(2,0,36,1) 100%); 
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+}
+
+.outline{
+	border: 3px solid white;
+}
+
 /*-------------------------------------------*/
 
 /*------------HEADERS------------*/
@@ -99,9 +112,28 @@ body {
 	padding: 10px;
 	border: 3px solid white;
 	flex-shrink: 0;
-	flex-basis: 185px;
+	flex-basis: 330px;
 }
 
+/*stylings for series box elements*/
+.title{
+	font-family: Brush Script MT;
+	font-size: 50px;
+	font-weight: bold;
+	color: #f0ffff;
+}
+
+.genre{
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #f0ffff;
+}
+
+.platform{
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #f0ffff;
+}
 .series.hide {
 	display: none;
 }
@@ -175,6 +207,29 @@ input[type=submit], input[type=button] {
 }
 
 input[type=submit]:hover, input[type=button]:hover {
+	background-color: #FFFFFF;
+	color: #424242;
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+/*add series button*/
+.open-add-series-form{
+	width: 250px;
+	border-radius: 10px;
+	border: 2px solid #f0ffff;
+	margin: 6px;
+	outline: none;
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 0 15px;
+	height: 40px;
+	background-color: transparent;
+	transition: 0.2s ease-in-out;
+}
+
+.open-add-series-form:hover{
 	background-color: #FFFFFF;
 	color: #424242;
 	cursor: pointer;
