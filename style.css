@@ -81,7 +81,7 @@ body {
 
 /*seriesContainer is a flex display that contains the single series box elements and arranges them from top-left to bottom-right
   styling for the single box elements can be found below*/
-.seriesContainer {
+.series-container {
 	text-align: center;
 	margin: auto;
 	padding: 10px;
