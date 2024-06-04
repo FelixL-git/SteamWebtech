@@ -41,7 +41,7 @@ def login():
     cnx.close()
 
     if user:
-        # Weiterleitung zum Dashboard
+        # Richtige Anmeldeinformationen
         return jsonify({'status': 'success', 'message': 'Erfolgreich eingeloggt'})
     else:
         # Falsche Anmeldeinformationen
@@ -67,8 +67,6 @@ def overview(username):
     cursor.close()
     cnx.close()
 
-    # Mit den Daten "list_of_students" das Template "overview.html" rendern. In der HTML-Datei heißt dann die
-    # Variable "data". Die kann auch sonst wie heißen
     return jsonify(result)
 
 @app.route('/user/<username>/series/<series_id>', methods=['DELETE'])
