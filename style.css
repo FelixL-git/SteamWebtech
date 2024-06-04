@@ -151,6 +151,18 @@ body {
 	display: none;
 }
 
+.star{
+	color: rgb(128, 128, 128);
+	font-size: 24px;
+	cursor: pointer;
+}
+.activeStar{
+	color: rgb(255, 255, 128);
+}
+#rating_form{
+	display: none;
+}
+
 /*loginBody contains structuring and styling for the login page*/
 .loginBody {
 	text-align: center;

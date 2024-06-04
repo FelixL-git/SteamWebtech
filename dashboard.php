@@ -53,6 +53,14 @@
 </div>
 <!-- SUCHE END --> 
 
+<!-- Rating Form -->
+<form id="rating_form" action="change_rating.php" method="POST">
+    <input type="text" id="rating_user" name="username">
+    <input type="number" id="rating_stars" name="rating">
+    <input type="number" id="rating_seriesid" name="series_id">
+</form>
+<!-- Rating Form End -->
+
 <!-- SERIEN AUFLISTEN START -->
 <?php
 include './db_config.php';
@@ -85,7 +93,8 @@ $result = $conn->query($sql);
                     "title": "<?php echo $row["Titel"]; ?>",
                     "genre": "<?php echo $row["Genre"]; ?>",
                     "platform": "<?php echo $row["Plattform"]; ?>",
-                    "seasons": "<?php echo $row["Staffeln"]; ?>"
+                    "seasons": "<?php echo $row["Staffeln"]; ?>",
+                    "rating": "<?php echo $row["Bewertung"]; ?>",
                 }'
             >
                 <div class="title">
@@ -102,6 +111,13 @@ $result = $conn->query($sql);
                 <div class="seasons">
                     <?php echo $row["Staffeln"]; ?>
                     <span>Staffeln</span>
+                </div>
+                <div class="rating">
+                    <span class="star <?php if($row["Bewertung"] >= 1) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 1);">★</span>
+                    <span class="star <?php if($row["Bewertung"] >= 2) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 2);">★</span>
+                    <span class="star <?php if($row["Bewertung"] >= 3) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 3);">★</span>
+                    <span class="star <?php if($row["Bewertung"] >= 4) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 4);">★</span>
+                    <span class="star <?php if($row["Bewertung"] >= 5) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 5);">★</span>
                 </div>
                 <br><br>
                 <form action="delete_series.php" method="post">

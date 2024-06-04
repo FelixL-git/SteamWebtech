@@ -107,5 +107,16 @@ function showLogin() {
     switchToRegister.style.display = "block";
 }
 
+function changeRating(username, seriesid, stars) {
+    var ratingForm = document.getElementById("rating_form");
+    var ratingUsername = document.getElementById("rating_user");
+    var ratingSeriesid = document.getElementById("rating_seriesid");
+    var ratingStars = document.getElementById("rating_stars");
+    ratingUsername.value = username;
+    ratingSeriesid.value = seriesid;
+    ratingStars.value = stars;
+    ratingForm.submit();
+}
+
 // call init function
 init();
