@@ -85,7 +85,8 @@ $result = json_decode($response);
 
 curl_close($curl);
 
-    foreach($result as $current): 
+    foreach($result as $current):
+        $index = $current[0];
         $user = $current[1];
         $title = $current[2];
         $genre = $current[3];
