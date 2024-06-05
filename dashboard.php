@@ -64,79 +64,77 @@
 <!-- SERIEN AUFLISTEN START -->
 <?php
 include './db_config.php';
-
-$conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
-if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-}
-
-
 session_start();
 $username = $_SESSION["username"];
 
-$sql = "SELECT * from series WHERE username = " . "'" . $username . "' ";
+$curl = curl_init();
 
-$result = $conn->query($sql);
-?>
-<?php if ($result->num_rows > 0): ?>
-    
-    <div class="series-container">
-        <?php 
-        $index = 0;
-        while($row = $result->fetch_assoc()): 
-        ?>
-            <div 
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'http://127.0.0.1:5000/user/'.$username,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$response = curl_exec($curl);
+$result = json_decode($response);
+
+curl_close($curl);
+
+    foreach($result as $current): 
+        $user = $current[1];
+        $title = $current[2];
+        $genre = $current[3];
+        $platform = $current[4];
+        $seasons = $current[5];
+        $rating = $current[6];?>
+<div class="series-container">
+        
+        <div 
                 class="series"
                 id="series-<?php echo $index; ?>"
                 data-series='{
                     "id": "series-<?php echo $index; ?>",
-                    "title": "<?php echo $row["Titel"]; ?>",
-                    "genre": "<?php echo $row["Genre"]; ?>",
-                    "platform": "<?php echo $row["Plattform"]; ?>",
-                    "seasons": "<?php echo $row["Staffeln"]; ?>",
-                    "rating": "<?php echo $row["Bewertung"]; ?>",
+                    "title": "<?php echo $title; ?>",
+                    "genre": "<?php echo $genre; ?>",
+                    "platform": "<?php echo $platform; ?>",
+                    "seasons": "<?php echo $seasons; ?>"
                 }'
             >
                 <div class="title">
-                    
-                    <?php echo $row["Titel"]; ?>
+                    <?php echo $title; ?>
                 </div>
                 <div class="genre">
-                    <?php echo $row["Genre"]; ?>
+                    <?php echo $genre; ?>
                 </div>
                 <div class="platform">
                     <span>Plattform: </span>
-                    <?php echo $row["Plattform"]; ?>
+                    <?php echo $platform; ?>
                 </div>
                 <div class="seasons">
-                    <?php echo $row["Staffeln"]; ?>
+                    <?php echo $seasons; ?>
                     <span>Staffeln</span>
                 </div>
-                <div class="rating">
-                    <span class="star <?php if($row["Bewertung"] >= 1) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 1);">★</span>
-                    <span class="star <?php if($row["Bewertung"] >= 2) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 2);">★</span>
-                    <span class="star <?php if($row["Bewertung"] >= 3) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 3);">★</span>
-                    <span class="star <?php if($row["Bewertung"] >= 4) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 4);">★</span>
-                    <span class="star <?php if($row["Bewertung"] >= 5) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $_SESSION['username']?>', <?php echo $row['id']?>, 5);">★</span>
-                </div>
+                <!-- <div class="rating">
+                    <span class="star <?php //if($row["Bewertung"] >= 1) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 1);">★</span>
+                    <span class="star <?php //if($row["Bewertung"] >= 3) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 3);">★</span>
+                    <span class="star <?php //if($row["Bewertung"] >= 4) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 4);">★</span>
+                    <span class="star <?php //if($row["Bewertung"] >= 5) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 5);">★</span>
+                </div> -->
                 <br><br>
                 <form action="delete_series.php" method="post">
                     <input type="hidden" name="series_id" value="<?php echo $row['id']; ?>">
                     <input type="submit" value="Serie löschen">
                 </form>
             </div>
-        <?php 
-        $index++;
-        endwhile; 
-        ?>
-    </div>
-<?php else: ?>
+    </div>  
+<?php endforeach; ?>
 
-<?php endif; ?>
-<?php
-$conn->close();
-
-?>
+    
 <!-- SERIEN AUFLISTEN END -->
 <script src="./script.js"></script>
 </body>
