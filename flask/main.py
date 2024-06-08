@@ -16,6 +16,34 @@ db_config = {
 def hello_world():
     return 'Hello, World!'
 
+@app.route('/register', methods=['POST'])
+def register():
+    # Benutzerdaten aus dem POST-Request abrufen
+    username = request.form['username']
+    password = request.form['password']
+
+    # Datenbankverbindung aufbauen
+    cnx = mysql.connector.connect(**db_config)
+    cursor = cnx.cursor()
+
+    # SQL-Befehl für die Benutzerregistrierung vorbereiten
+    sql = "INSERT INTO user (username, password) VALUES (%s, %s)"
+
+    try:
+        # SQL-Befehl ausführen
+        cursor.execute(sql, (username, password))
+        cnx.commit()  # Änderungen bestätigen
+        result = {'status': 'success', 'message': 'Benutzer erfolgreich registriert'}
+    except mysql.connector.Error as err:
+        cnx.rollback()  # Rollback bei Fehler
+        result = {'status': 'error', 'message': str(err)}
+    finally:
+        # Verbindung schließen
+        cursor.close()
+        cnx.close()
+
+    return jsonify(result)
+
 
 @app.route('/login', methods=['POST'])
 def login():
