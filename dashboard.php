@@ -120,12 +120,13 @@ curl_close($curl);
                     <?php echo $seasons; ?>
                     <span>Staffeln</span>
                 </div>
-                <!-- <div class="rating">
-                    <span class="star <?php //if($row["Bewertung"] >= 1) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 1);">★</span>
-                    <span class="star <?php //if($row["Bewertung"] >= 3) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 3);">★</span>
-                    <span class="star <?php //if($row["Bewertung"] >= 4) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 4);">★</span>
-                    <span class="star <?php //if($row["Bewertung"] >= 5) {echo "activeStar";} ?>" onclick="changeRating('<?php //echo $_SESSION['username']?>', <?php //echo $row['id']?>, 5);">★</span>
-                </div> -->
+                <div class="rating">
+                    <span class="star <?php if($rating >= 1) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $username?>', <?php echo $index?>, 1);">★</span>
+                    <span class="star <?php if($rating >= 2) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $username?>', <?php echo $index?>, 2);">★</span>
+                    <span class="star <?php if($rating >= 3) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $username?>', <?php echo $index?>, 3);">★</span>
+                    <span class="star <?php if($rating >= 4) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $username?>', <?php echo $index?>, 4);">★</span>
+                    <span class="star <?php if($rating >= 5) {echo "activeStar";} ?>" onclick="changeRating('<?php echo $username?>', <?php echo $index?>, 5);">★</span>
+                </div>
                 <br><br>
                 <form action="delete_series.php" method="post">
                     <input type="hidden" name="series_id" value="<?php echo $row['id']; ?>">

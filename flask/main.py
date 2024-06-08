@@ -151,6 +151,34 @@ def add_series(username):
 
     return jsonify(result)
 
+@app.route('/user/<username>/change_rating', methods=['POST'])
+def change_rating(username):
+    # Benutzerdaten, Serien-ID und abgegebene Sternezahl aus dem POST-Request abrufen
+    username = request.form['username']
+    series_id = request.form['series_id']
+    rating = request.form['rating']
+
+    # Datenbankverbindung aufbauen
+    cnx = mysql.connector.connect(**db_config)
+    cursor = cnx.cursor()
+
+    # SQL-Befehl für die Rating-Änderung vorbereiten
+    sql = "UPDATE series SET Bewertung = %s WHERE id = %s AND username = %s"
+
+    try:
+        # SQL-Befehl ausführen
+        cursor.execute(sql, (rating, series_id, username))
+        cnx.commit()  # Änderungen bestätigen
+        result = {'status': 'success', 'message': 'Benutzer erfolgreich registriert'}
+    except mysql.connector.Error as err:
+        cnx.rollback()  # Rollback bei Fehler
+        result = {'status': 'error', 'message': str(err)}
+    finally:
+        # Verbindung schließen
+        cursor.close()
+        cnx.close()
+
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run()
