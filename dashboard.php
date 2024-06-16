@@ -129,7 +129,7 @@ curl_close($curl);
                 </div>
                 <br><br>
                 <form action="delete_series.php" method="post">
-                    <input type="hidden" name="series_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="series_id" value="<?php echo $index?>">
                     <input type="submit" value="Serie löschen">
                 </form>
             </div>

@@ -1,28 +1,37 @@
 <?php
 include './db_config.php';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	session_start();
+
     $series_id = $_POST['series_id'];
 
-    // Erstelle die Verbindung
-    $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
-    if ($conn->connect_error) {
-        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-    }
 
-    $sql = "DELETE FROM series WHERE id = ?";
+    session_start();
+    $username = $_SESSION["username"];
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $series_id); // parajmeter werden als values eingesetzt i=integer
+    $curl = curl_init();
 
-    if ($stmt->execute()) {
-		header('Location: dashboard.php');
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://127.0.0.1:5000/user/' . $username . '/series' . '/' . $series_id,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+         CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'DELETE',
+        ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+
+    if (json_decode($response)->{"status"} == "success") {
+        session_start();
+	    $_SESSION["username"] = $username;
+	    header('Location: dashboard.php');
     } else {
-        echo "Fehler: " . $stmt->error;
+    readfile("./index.html");
+    echo '<center><p class="warning"> Serie nicht gefunden. </p></center>';
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>
