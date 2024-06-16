@@ -62,6 +62,7 @@
 <!-- Rating Form End -->
 
 <!-- SERIEN AUFLISTEN START -->
+<div class="series-container">
 <?php
 include './db_config.php';
 session_start();
@@ -93,7 +94,7 @@ curl_close($curl);
         $platform = $current[4];
         $seasons = $current[5];
         $rating = $current[6];?>
-<div class="series-container">
+
         
         <div 
                 class="series"
@@ -133,9 +134,9 @@ curl_close($curl);
                     <input type="submit" value="Serie löschen">
                 </form>
             </div>
-    </div>  
-<?php endforeach; ?>
 
+<?php endforeach; ?>
+</div>  
     
 <!-- SERIEN AUFLISTEN END -->
 <script src="./script.js"></script>
