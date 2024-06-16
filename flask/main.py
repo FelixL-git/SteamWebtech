@@ -151,7 +151,7 @@ def add_series(username):
 
     return jsonify(result)
 
-@app.route('/user/<username>/change_rating', methods=['POST'])
+@app.route('/user/<username>/change_rating', methods=['PUT'])
 def change_rating(username):
     # Benutzerdaten, Serien-ID und abgegebene Sternezahl aus dem POST-Request abrufen
     username = request.form['username']
